@@ -4,6 +4,7 @@ import requests
 import sys
 from PyQt6 import uic
 import logging
+from random import random
 
 
 # я не хочу делать второй запрос, из-за этого упращаю систему сильно
@@ -49,7 +50,9 @@ class MainWidget(QWidget):
 			spn = self.spin_2.value()
 		logging.info(f'lol {name}, {spn}')
 		dataimg = get_img(name, float(spn) / 10000)
-		
+		image = QPixmap()
+		image.loadFromData(dataimg)
+		self.img_1.setPixmap(image)
 
 
 if __name__ == '__main__':
